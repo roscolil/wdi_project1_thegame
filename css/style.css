@@ -2,98 +2,112 @@ html {
   box-sizing: border-box;
 }
 
+body {
+  background-image: url('../images/Cross_Background.jpg');  /* set y-axis for image to not repeat */
+
+}
+
+h1 {
+  font-family: 'Eczar', serif;
+  font-size:50px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 50px;
+  color: white;
+}
+
 .grid-container {
   display: table;
   border-spacing: 5px;
-  margin: 20% auto;
+  margin: 10% auto;
 }
 
 .row1 {
   display: table-row;
-  border: 1px solid white;
+  border: 1px solid black;
   padding: 2px;
 }
 
 .row2 {
   display: table-row;
-  border: 1px solid white;
+  border: 1px solid black;
   padding: 2px;
 }
 
 .row3 {
   display: table-row;
-  border: 1px solid white;
+  border: 1px solid black;
   padding: 2px;
 }
 
 .cell1 {
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   background: grey;
   display: table-cell;
-  border: 1px solid white;
+  border: 1px solid black;
 }
 
 .cell2 {
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   background: grey;
   display: table-cell;
-  border: 1px solid white;
+  border: 1px solid black;
 }
 
 .cell3 {
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   background: grey;
   display: table-cell;
-  border: 1px solid white;
+  border: 1px solid black;
 }
 
 .cell4 {
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   background: grey;
   display: table-cell;
-  border: 1px solid white;
+  border: 1px solid black;
 }
 
 .cell5 {
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   background: grey;
   display: table-cell;
-  border: 1px solid white;
+  border: 1px solid black;
 }
 
 .cell6 {
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   background: grey;
   display: table-cell;
-  border: 1px solid white;
+  border: 1px solid black;
 }
 
 .cell7 {
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   background: grey;
   display: table-cell;
-  border: 1px solid white;
+  border: 1px solid black;
 }
 
 .cell8 {
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   background: grey;
   display: table-cell;
-  border: 1px solid white;
+  border: 1px solid black;
 }
 
 .cell9 {
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   background: grey;
   display: table-cell;
-  border: 1px solid white;
+  border: 1px solid black;
 }
