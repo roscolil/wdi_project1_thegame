@@ -4,13 +4,40 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-  <link rel="stylesheet" href="/css/reset.css">
-  <link rel="stylesheet" href="/css/style.css">
+  <title>Tic Tac Toe</title>
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
+  <header>
+    <h1>Tic Tac Toe</h1>
+  </header>
 
+  <body>
+    <div class="grid-container">
+      <div class="row1">
+        <div class="cell1">1x1</div>
+        <div class="cell2">1x2</div>
+        <div class="cell3">1x3</div>
+      </div>
+      <div class="row2">
+        <div class="cell4">2x1</div>
+        <div class="cell5">2x2</div>
+        <div class="cell6">2x3</div>
+      </div>
+      <div class="row3">
+        <div class="cell7">3x1</div>
+        <div class="cell8">3x2</div>
+        <div class="cell9">3x3</div>
+      </div>
+    </div>
+  </body>
 
-  <script src="/js/app.js" charset="utf-8"></script>
+  <footer>
+    <div>Player 1:<span id="plr1-wins"></span></div>
+    <div>Player 2:<span id="plr2-wins"></span></div>
+    <button type="button" name="new-game">New Game</button>
+  </footer>
+  <script src="./js/app.js" charset="utf-8"></script>
 </body>
 </html>
