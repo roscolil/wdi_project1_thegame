@@ -1,39 +1,81 @@
 //wdi_project1_thegame by Ross Lillis
 
 // Message: Player 1 start game by selecting a position on the board
-var player1Select = [];
-var player2Select = [];
+var player1Moves = [];
+var player2Moves = [];
 var gameArray = [];
 var player1Wins = 0;
 var player2Wins = 0;
-var numberOfMoves = 0;                            // if numberOfMoves = 9 --- DRAW
+var numberOfMoves = 0;                           // if numberOfMoves = 9 --- DRAW
 var cellItems = document.querySelectorAll('.grid-container div');
+var displayWinner = document.querySelector('.display-winner');
+var displayPlayer1Wins = document.querySelector('.plr1-wins');
+var displayPlayer2Wins = document.querySelector('.plr2-wins');
 var newGame = document.querySelector('button');
 
+var winningComboArray =
+[
+   ['X', 'X', 'X', 'O', 'O', 'O', 'O', 'O', 'O'],
+   ['O', 'O', 'O', 'X', 'X', 'X', 'O', 'O', 'O'],
+   ['O', 'O', 'O', 'O', 'O', 'O', 'X', 'X', 'X'],
+   ['X', 'O', 'O', 'X', 'O', 'O', 'X', 'O', 'O'],
+   ['O', 'X', 'O', 'O', 'X', 'O', 'O', 'X', 'O'],
+   ['O', 'O', 'X', 'O', 'O', 'X', 'O', 'O', 'X'],
+   ['X', 'O', 'O', 'O', 'X', 'O', 'O', 'O', 'X'],
+   ['O', 'O', 'X', 'O', 'X', 'O', 'X', 'O', 'O']
+];
 
-// var winningCombo =
-// {
-//     winningCombo [1, 2, 3]
-//     winningCombo [4, 5, 6]
-//     winningCombo [7, 8, 9]
-//     winningCombo [1, 4, 7]
-//     winningCombo [2, 5, 8]
-//     winningCombo [3, 6, 9]
-//     winningCombo [1, 5, 9]
-//     winningCombo [3, 5, 7]
-// }
+
+var addPlayer1Selection = function() {
+  player1Moves.push('X');
+};
+
+var addPlayer2Selection = function() {
+  player2Moves.push('O');
+};
+
 var changePlayer = function() {
   numberOfMoves++;
 };
 
+var checkforDraw = function() {
+  if (numberOfMoves === 9) {
+    document.querySelector('.displayWinner').textContent = 'It\'s a Draw!';
+  }
+};
+
+// Loop through array to check for win
+var checkForWinFunct = function() {
+  for (var i = 0; i < winningComboArray.length; i++) {
+    for (var j = 0; j < winningComboArray[i].length; j++) {
+      if (winningComboArray[i][j].match(/XXX/)) {
+        displayWinner.textContent = 'Player 1 Wins!';
+        displayPlayer1Wins.textContent = player1Wins;
+        return player1Wins++;
+      }
+      else if (winningComboArray[i][j].match(/OOO/)) {
+        displayWinner.textContent = 'Player 2 Wins!';
+        displayPlayer2Wins.textContent = player2Wins;
+        return player2Wins++;
+      }
+    }
+  }
+};
+
+
+// Alternate players after click event
 var playerMove = function(event) {
+// check empty cell
   if (numberOfMoves % 2 === 0) {
-    event.target.classList.add('selected-O');
-  }
-  else {
     event.target.classList.add('selected-X');
+    addPlayer1Selection();
+  } else {
+    event.target.classList.add('selected-O');
+    addPlayer2Selection();
   }
+  checkForWinFunct();
   changePlayer();
+  checkforDraw();
 };
 
 cellItems.forEach(function(cell) {
@@ -42,54 +84,7 @@ cellItems.forEach(function(cell) {
 
 
 
-// var player2Move = function(event) {
-//   event.target.classList.add('selected-X');
-//   changePlayer()
+
+// var newGame = function () {
+//   var newGame = document.querySelector('');
 // };
-
-// cellItems.forEach(function(cell) {
-//   cell.addEventListener('click', player2Move);
-// });
-
-
-// var multiPlayerFunction = function() {
-//   if (numberOfMoves % 2 === 1) {
-//     changePlayer();
-//   }
-//   else if (numberOfMoves % 2 === 0) {
-//     changePlayer();
-//   }
-// };
-
-//multiPlayerFunction();
-
-
-
-
-
-
-// var changePlayer = function() {
-//   if (symbol === 'X') {
-//     // increment playerO by 1
-//     // change symbol to O
-//   } else {
-//     // increment playerX by 1
-//     // change symbol to X
-//   }
-// };
-//
-
-
-
-
-var winCount = function() {               // Needs to account for two players. Two separate functions??
-  var wins = 0;
-  wins += 1;
-  document.getElementById('wins').innerHTML = wins;
-};
-
-
-
-var newGame = function () {
-  var newGame = document.querySelector('');
-};

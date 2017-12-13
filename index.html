@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Tic Tac Toe</title>
-  <link rel="stylesheet" href="./css/reset.css">
-  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
   <link href="https://fonts.googleapis.com/css?family=Eczar" rel="stylesheet">
 
 </head>
@@ -16,29 +16,29 @@
   </header>
 
   <main>
-    <div class="score-board">
-      <h2>Player 1<span id="plr1-wins">0</span></h2>
-      <h2>Player 2<span id="plr2-wins">0</span></h2>
+    <div>
+      <h2>Player 1:<span class="plr1-wins">0</span></h2>
+      <h2>Player 2:<span class="plr2-wins">0</span></h2>
     </div>
-
 
     <div class="grid-container">
-      <section class="row1">
-        <div class="cell0"></div>
+      <section>
         <div class="cell1"></div>
         <div class="cell2"></div>
-      </section>
-      <section class="row2">
         <div class="cell3"></div>
+      </section>
+      <section>
         <div class="cell4"></div>
         <div class="cell5"></div>
-      </section>
-      <section class="row3">
         <div class="cell6"></div>
+      </section>
+      <section>
         <div class="cell7"></div>
         <div class="cell8"></div>
+        <div class="cell9"></div>
       </section>
     </div>
+      <p class="display-winner"></p>
   </main>
 
   <footer>
@@ -46,6 +46,6 @@
       <button type="button" name="new-game">New Game</button>
     </div>
   </footer>
-  <script src="./js/app.js" charset="utf-8"></script>
+  <script src="js/app.js" charset="utf-8"></script>
 </body>
 </html>
