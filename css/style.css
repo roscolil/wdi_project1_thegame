@@ -1,8 +1,11 @@
 /*
 Childrens images for either side of game board
-Reduce game board 'content' to size of board. Issues centering h2/button
+make more responsive using viewport
+fix row margin spacing
 Score counters next to or under h2's
 new game button styling
+field for displaying winner/draw
+font for O and X
 */
 
 html {
@@ -10,7 +13,7 @@ html {
 }
 
 body {
-  background-image: url('../images/Cross_Background.jpg');  /* set y-axis for image to not repeat */
+  background-image: url('../images/Cross_Background.jpg');    /* set y-axis for image to not repeat? */
   background-size: 100%;
 }
 
@@ -62,11 +65,11 @@ margin: 0 auto 5% auto;
 }
 
 .grid-container div.selected-O {
-  content: 'O';
+  background-color: red;
 }
 
 .grid-container div.selected-X {
-  content: 'X';
+  background-color: green;
 }
 
 .grid-container div {
@@ -77,9 +80,8 @@ margin: 0 auto 5% auto;
   border: 1px solid black;
 }
 
-/*
+
 .grid-container div:hover {
   background: white;
   border: 1px solid black;
 }
-*/
