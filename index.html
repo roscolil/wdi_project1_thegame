@@ -16,29 +16,35 @@
   </header>
 
   <body>
+    <div class="score-board">
+      <h2>Player 1<span id="plr1-wins">0</span></h2>
+      <h2>Player 2<span id="plr2-wins">0</span></h2>
+    </div>
+
+
     <div class="grid-container">
-      <div class="row1">
+      <section class="row1">
+        <div class="cell0"></div>
         <div class="cell1"></div>
         <div class="cell2"></div>
+      </section>
+      <section class="row2">
         <div class="cell3"></div>
-      </div>
-      <div class="row2">
         <div class="cell4"></div>
         <div class="cell5"></div>
+      </section>
+      <section class="row3">
         <div class="cell6"></div>
-      </div>
-      <div class="row3">
         <div class="cell7"></div>
         <div class="cell8"></div>
-        <div class="cell9"></div>
-      </div>
+      </section>
     </div>
   </body>
 
   <footer>
-    <div>Player 1:<span id="plr1-wins"></span></div>
-    <div>Player 2:<span id="plr2-wins"></span></div>
-    <button type="button" name="new-game">New Game</button>
+    <div>
+      <button type="button" name="new-game">New Game</button>
+    </div>
   </footer>
   <script src="./js/app.js" charset="utf-8"></script>
 </body>

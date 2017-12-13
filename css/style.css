@@ -1,46 +1,75 @@
+/*
+Childrens images for either side of game board
+Reduce game board 'content' to size of board. Issues centering h2/button
+Score counters next to or under h2's
+new game button styling
+*/
+
 html {
   box-sizing: border-box;
 }
 
 body {
   background-image: url('../images/Cross_Background.jpg');  /* set y-axis for image to not repeat */
+  background-size: 100%;
+}
 
+header {
+  margin: 5% auto;
 }
 
 h1 {
   font-family: 'Eczar', serif;
-  font-size:50px;
+  font-size: 60px;
   font-weight: bold;
   text-align: center;
   margin-top: 50px;
   color: white;
 }
 
+h2 {
+  font-family: 'Eczar', serif;
+  font-size:30px;
+  font-weight: bold;
+  margin: 10%;
+  color: white;
+  display: inline;
+}
+
+span {
+  margin-left: 3%;
+}
+
+div {
+  text-align: center;
+}
+
+button {
+text-align: center;
+margin: 0 auto 5% auto;
+}
+
 .grid-container {
   display: table;
   border-spacing: 5px;
-  margin: 10% auto;
+  margin: 5% auto;
 }
 
-.row1 {
+.grid_container section {
   display: table-row;
   border: 1px solid black;
   padding: 2px;
 }
 
-.row2 {
-  display: table-row;
-  border: 1px solid black;
-  padding: 2px;
+.grid-container div.selected-O {
+  content: 'O';
 }
 
-.row3 {
-  display: table-row;
-  border: 1px solid black;
-  padding: 2px;
+.grid-container div.selected-X {
+  content: 'X';
 }
 
-.cell1 {
+.grid-container div {
   width: 120px;
   height: 120px;
   background: grey;
@@ -48,66 +77,9 @@ h1 {
   border: 1px solid black;
 }
 
-.cell2 {
-  width: 120px;
-  height: 120px;
-  background: grey;
-  display: table-cell;
+/*
+.grid-container div:hover {
+  background: white;
   border: 1px solid black;
 }
-
-.cell3 {
-  width: 120px;
-  height: 120px;
-  background: grey;
-  display: table-cell;
-  border: 1px solid black;
-}
-
-.cell4 {
-  width: 120px;
-  height: 120px;
-  background: grey;
-  display: table-cell;
-  border: 1px solid black;
-}
-
-.cell5 {
-  width: 120px;
-  height: 120px;
-  background: grey;
-  display: table-cell;
-  border: 1px solid black;
-}
-
-.cell6 {
-  width: 120px;
-  height: 120px;
-  background: grey;
-  display: table-cell;
-  border: 1px solid black;
-}
-
-.cell7 {
-  width: 120px;
-  height: 120px;
-  background: grey;
-  display: table-cell;
-  border: 1px solid black;
-}
-
-.cell8 {
-  width: 120px;
-  height: 120px;
-  background: grey;
-  display: table-cell;
-  border: 1px solid black;
-}
-
-.cell9 {
-  width: 120px;
-  height: 120px;
-  background: grey;
-  display: table-cell;
-  border: 1px solid black;
-}
+*/
