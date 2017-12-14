@@ -1,9 +1,6 @@
 //wdi_project1_thegame by Ross Lillis
 
-// Message: Player 1 start game by selecting a position on the board
-var player1Moves = [];
-var player2Moves = [];
-var gameArray = [];
+
 var player1WinCount = 0;
 var player2WinCount = 0;
 var numberOfMoves = 0;
@@ -12,10 +9,7 @@ var displayWinner = document.querySelector('.display-winner');
 var displayPlayer1Wins = document.querySelector('.plr1-wins');
 var displayPlayer2Wins = document.querySelector('.plr2-wins');
 var newGameBtn = document.querySelector('.newGameBtn');
-
-var X = 'selected-X';
-var O = 'selected-O';
-var cell1 = document.querySelector('.cell1');
+var cell1 = document.querySelector('.cell1');     // Refactor these declarations up
 var cell2 = document.querySelector('.cell2');
 var cell3 = document.querySelector('.cell3');
 var cell4 = document.querySelector('.cell4');
@@ -24,29 +18,11 @@ var cell6 = document.querySelector('.cell6');
 var cell7 = document.querySelector('.cell7');
 var cell8 = document.querySelector('.cell8');
 var cell9 = document.querySelector('.cell9');
-
-// var winningComboArray =
-// [
-//    ['X', 'X', 'X', 'O', 'O', 'O', 'O', 'O', 'O'],
-//    ['O', 'O', 'O', 'X', 'X', 'X', 'O', 'O', 'O'],
-//    ['O', 'O', 'O', 'O', 'O', 'O', 'X', 'X', 'X'],
-//    ['X', 'O', 'O', 'X', 'O', 'O', 'X', 'O', 'O'],
-//    ['O', 'X', 'O', 'O', 'X', 'O', 'O', 'X', 'O'],
-//    ['O', 'O', 'X', 'O', 'O', 'X', 'O', 'O', 'X'],
-//    ['X', 'O', 'O', 'O', 'X', 'O', 'O', 'O', 'X'],
-//    ['O', 'O', 'X', 'O', 'X', 'O', 'X', 'O', 'O']
-// ];
+var X = 'selected-X';
+var O = 'selected-O';
 
 
-// var addPlayer1Selection = function() {
-//   player1Moves.push('X');
-// };
-//
-// var addPlayer2Selection = function() {
-//   player2Moves.push('O');
-// };
-
-var changePlayer = function() {
+var moveCounter = function() {
   numberOfMoves++;
 };
 
@@ -56,9 +32,24 @@ var checkforDraw = function() {
   }
 };
 
+var displayPlayer1Win = function() {
+  displayWinner.textContent = 'Player 1 Wins in ' + (numberOfMoves + 1) + ' moves.';
+  player1WinCount++;
+  displayPlayer1Wins.textContent = player1WinCount;
+};
 
-// Loop through array to check for win
-var checkForWinFunct = function() {
+var displayPlayer2Win = function() {
+  displayWinner.textContent = 'Player 2 Wins in ' + (numberOfMoves + 1) + ' moves.';
+  player2WinCount++;
+  displayPlayer2Wins.textContent = player2WinCount;
+};
+
+var newGame = function () {
+  cellItems.classList.remove('selected-X selected-O');  // ERROR: Cannot read property 'remove' of undefined
+  displayWinner.textContent = '';
+};
+
+var checkForWinFunct = function() {     // Refactor these statements
   if (cell1.classList.contains(X) && cell2.classList.contains(X) && cell3.classList.contains(X)) {
     displayPlayer1Win();
   } else if (cell4.classList.contains(X) && cell5.classList.contains(X) && cell6.classList.contains(X)) {
@@ -95,25 +86,9 @@ var checkForWinFunct = function() {
   }
 };
 
-var displayPlayer1Win = function() {
-  displayWinner.textContent = 'Player 1 Wins in ' + numberOfMoves + ' moves.';
-  player1WinCount++;
-  displayPlayer1Wins.textContent = player1WinCount;
-};
 
-var displayPlayer2Win = function() {
-  displayWinner.textContent = 'Player 2 Wins in ' + numberOfMoves + ' moves.';
-  displayPlayer2Wins.textContent = player2WinCount;
-  return player2WinCount++;
-};
+//--------------------------------------MAIN PROGRAM FUNCTION------------------------------------//
 
-var newGame = function () {
-  cellItems.classList.remove('selected-X selecte-O');
-  displayWinner.textContent = '';
-};
-
-
-//-------------MAIN PROGRAM FUNCTION---------------
 
 var mainGameFunction = function(event) {
   if (event.target.classList.contains('selected-X') || event.target.classList.contains('selected-O')) {
@@ -124,15 +99,14 @@ var mainGameFunction = function(event) {
     } else {
       event.target.classList.add('selected-O');
     }
+
     checkForWinFunct();
     checkforDraw();
-    changePlayer();
+    moveCounter();
   }
 };
 
 cellItems.forEach(function(cell) {
   cell.addEventListener('click', mainGameFunction);
+  newGameBtn.addEventListener('click', newGame);
 });
-
-
-newGameBtn.addEventListener('click', newGame);

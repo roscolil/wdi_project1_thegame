@@ -64,6 +64,15 @@ div {
   border: 1px solid black;
 }
 
+.grid-container div {
+  width: 100px;
+  height: 100px;
+  background: grey;
+  display: table-cell;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
 .grid-container div.selected-X {
   background-image: url('../images/friendly_ghost_2.png');
   background-size: cover;
@@ -75,18 +84,20 @@ div {
   background-image:
 }
 
-.grid-container div {
-  width: 100px;
-  height: 100px;
-  background: grey;
-  display: table-cell;
-  border: 1px solid black;
-  cursor: pointer;
-}
 
 .grid-container div:hover {
-  background: white;
-  border: 1px solid black;
+	-ms-transform: scale(1.1,1.1); /* IE 9 */
+  -webkit-transform: scale(1.1,1.1); /* Safari */
+  transform: scale(1.1,1.1);
+	-webkit-box-shadow: 10px 10px 91px 0px rgba(193,79,82,1);
+  -moz-box-shadow: 10px 10px 91px 0px rgba(193,79,82,1);
+  box-shadow: 10px 10px 91px 0px rgba(193,79,82,1);
+	z-index:9999;
+	border-right:1px solid transparent;
+	border-bottom:1px solid transparent;
+	cursor:pointer;
+	background-color:#fff;
+  transition-duration: 1s;
 }
 
 button {
