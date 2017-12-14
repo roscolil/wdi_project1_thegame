@@ -11,7 +11,7 @@ var cellItems = document.querySelectorAll('.grid-container div');
 var displayWinner = document.querySelector('.display-winner');
 var displayPlayer1Wins = document.querySelector('.plr1-wins');
 var displayPlayer2Wins = document.querySelector('.plr2-wins');
-var newGame = document.querySelector('button');
+var newGameBtn = document.querySelector('.newGameBtn');
 
 var X = 'selected-X';
 var O = 'selected-O';
@@ -48,14 +48,14 @@ var cell9 = document.querySelector('.cell9');
 
 var changePlayer = function() {
   numberOfMoves++;
-  return numberOfMoves;
 };
 
 var checkforDraw = function() {
   if (numberOfMoves === 9) {
-    document.querySelector('.displayWinner').textContent = 'It\'s a Draw!';
+    document.querySelector('.display-winner').textContent = 'It\'s a Draw!';
   }
 };
+
 
 // Loop through array to check for win
 var checkForWinFunct = function() {
@@ -76,59 +76,63 @@ var checkForWinFunct = function() {
   } else if (cell3.classList.contains(X) && cell5.classList.contains(X) && cell7.classList.contains(X)) {
     displayPlayer1Win();
   }
-  else if (cell1.classList.contains(X) && cell2.classList.contains(X) && cell3.classList.contains(X)) {
+  else if (cell1.classList.contains(O) && cell2.classList.contains(O) && cell3.classList.contains(O)) {
     displayPlayer2Win();
-  } else if (cell4.classList.contains(X) && cell5.classList.contains(X) && cell6.classList.contains(X)) {
+  } else if (cell4.classList.contains(O) && cell5.classList.contains(O) && cell6.classList.contains(O)) {
     displayPlayer2Win();
-  } else if (cell7.classList.contains(X) && cell8.classList.contains(X) && cell9.classList.contains(X)) {
+  } else if (cell7.classList.contains(O) && cell8.classList.contains(O) && cell9.classList.contains(O)) {
     displayPlayer2Win();
-  } else if (cell1.classList.contains(X) && cell4.classList.contains(X) && cell7.classList.contains(X)) {
+  } else if (cell1.classList.contains(O) && cell4.classList.contains(O) && cell7.classList.contains(O)) {
     displayPlayer2Win();
-  } else if (cell2.classList.contains(X) && cell5.classList.contains(X) && cell8.classList.contains(X)) {
+  } else if (cell2.classList.contains(O) && cell5.classList.contains(O) && cell8.classList.contains(O)) {
     displayPlayer2Win();
-  } else if (cell3.classList.contains(X) && cell6.classList.contains(X) && cell9.classList.contains(X)) {
+  } else if (cell3.classList.contains(O) && cell6.classList.contains(O) && cell9.classList.contains(O)) {
     displayPlayer2Win();
-  } else if (cell1.classList.contains(X) && cell5.classList.contains(X) && cell9.classList.contains(X)) {
+  } else if (cell1.classList.contains(O) && cell5.classList.contains(O) && cell9.classList.contains(O)) {
     displayPlayer2Win();
-  } else if (cell3.classList.contains(X) && cell5.classList.contains(X) && cell7.classList.contains(X)) {
+  } else if (cell3.classList.contains(O) && cell5.classList.contains(O) && cell7.classList.contains(O)) {
     displayPlayer2Win();
   }
 };
+
 var displayPlayer1Win = function() {
-  displayWinner.textContent = 'Player 1 Wins!'; // In x moves!
+  displayWinner.textContent = 'Player 1 Wins in ' + numberOfMoves + ' moves.';
   player1WinCount++;
   displayPlayer1Wins.textContent = player1WinCount;
 };
 
 var displayPlayer2Win = function() {
-  displayWinner.textContent = 'Player 2 Wins!';
+  displayWinner.textContent = 'Player 2 Wins in ' + numberOfMoves + ' moves.';
   displayPlayer2Wins.textContent = player2WinCount;
   return player2WinCount++;
 };
 
-// var newGame = function () {
-//   var newGame = document.querySelector('');
-// };
+var newGame = function () {
+  cellItems.classList.remove('selected-X selecte-O');
+  displayWinner.textContent = '';
+};
 
 
 //-------------MAIN PROGRAM FUNCTION---------------
 
 var mainGameFunction = function(event) {
-// check empty cell
-  if (numberOfMoves % 2 === 0) {
-    event.target.classList.add('selected-X');  // Use this class to see if cell has been played
-    //event.target.classList.push();
-    //addPlayer1Selection();
+  if (event.target.classList.contains('selected-X') || event.target.classList.contains('selected-O')) {
+    alert('This move has been played. Select another.');
   } else {
-    event.target.classList.add('selected-O');
-    //player2Moves = event.target.classList.push();
-    //addPlayer2Selection();
+    if (numberOfMoves % 2 === 0) {
+      event.target.classList.add('selected-X');
+    } else {
+      event.target.classList.add('selected-O');
+    }
+    checkForWinFunct();
+    checkforDraw();
+    changePlayer();
   }
-  checkForWinFunct();
-  checkforDraw();
-  changePlayer();
 };
 
 cellItems.forEach(function(cell) {
   cell.addEventListener('click', mainGameFunction);
 });
+
+
+newGameBtn.addEventListener('click', newGame);

@@ -2,10 +2,6 @@
 Childrens images for either side of game board
 make more responsive using viewport
 fix row margin spacing
-Score counters next to or under h2's
-new game button styling
-field for displaying winner/draw
-font for O and X
 */
 
 html {
@@ -13,7 +9,7 @@ html {
 }
 
 body {
-  background-image: url('../images/Cross_Background.jpg');    /* set y-axis for image to not repeat? */
+  background-image: url('../images/Cross_Background.jpg');
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -43,7 +39,7 @@ h2 {
 p {
   font-family: 'Eczar', serif;
   text-align: center;
-  font-size:40px;
+  font-size:30px;
   font-weight: bold;
   color: white;
   margin-bottom: 1%;
@@ -69,11 +65,14 @@ div {
 }
 
 .grid-container div.selected-X {
-  background-color: red;
+  background-image: url('../images/friendly_ghost_2.png');
+  background-size: cover;
 }
 
 .grid-container div.selected-O {
-  background-color: green;
+  background-image: url('../images/friendly_ghost_waving.jpg');
+  background-size: cover;
+  background-image:
 }
 
 .grid-container div {
