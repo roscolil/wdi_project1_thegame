@@ -13,26 +13,38 @@ var displayPlayer1Wins = document.querySelector('.plr1-wins');
 var displayPlayer2Wins = document.querySelector('.plr2-wins');
 var newGame = document.querySelector('button');
 
-var winningComboArray =
-[
-   ['X', 'X', 'X', 'O', 'O', 'O', 'O', 'O', 'O'],
-   ['O', 'O', 'O', 'X', 'X', 'X', 'O', 'O', 'O'],
-   ['O', 'O', 'O', 'O', 'O', 'O', 'X', 'X', 'X'],
-   ['X', 'O', 'O', 'X', 'O', 'O', 'X', 'O', 'O'],
-   ['O', 'X', 'O', 'O', 'X', 'O', 'O', 'X', 'O'],
-   ['O', 'O', 'X', 'O', 'O', 'X', 'O', 'O', 'X'],
-   ['X', 'O', 'O', 'O', 'X', 'O', 'O', 'O', 'X'],
-   ['O', 'O', 'X', 'O', 'X', 'O', 'X', 'O', 'O']
-];
+var X = 'selected-X';
+var O = 'selected-O';
+var cell1 = document.querySelector('.cell1');
+var cell2 = document.querySelector('.cell2');
+var cell3 = document.querySelector('.cell3');
+var cell4 = document.querySelector('.cell4');
+var cell5 = document.querySelector('.cell5');
+var cell6 = document.querySelector('.cell6');
+var cell7 = document.querySelector('.cell7');
+var cell8 = document.querySelector('.cell8');
+var cell9 = document.querySelector('.cell9');
+
+// var winningComboArray =
+// [
+//    ['X', 'X', 'X', 'O', 'O', 'O', 'O', 'O', 'O'],
+//    ['O', 'O', 'O', 'X', 'X', 'X', 'O', 'O', 'O'],
+//    ['O', 'O', 'O', 'O', 'O', 'O', 'X', 'X', 'X'],
+//    ['X', 'O', 'O', 'X', 'O', 'O', 'X', 'O', 'O'],
+//    ['O', 'X', 'O', 'O', 'X', 'O', 'O', 'X', 'O'],
+//    ['O', 'O', 'X', 'O', 'O', 'X', 'O', 'O', 'X'],
+//    ['X', 'O', 'O', 'O', 'X', 'O', 'O', 'O', 'X'],
+//    ['O', 'O', 'X', 'O', 'X', 'O', 'X', 'O', 'O']
+// ];
 
 
-var addPlayer1Selection = function() {
-  player1Moves.push('X');
-};
-
-var addPlayer2Selection = function() {
-  player2Moves.push('O');
-};
+// var addPlayer1Selection = function() {
+//   player1Moves.push('X');
+// };
+//
+// var addPlayer2Selection = function() {
+//   player2Moves.push('O');
+// };
 
 var changePlayer = function() {
   numberOfMoves++;
@@ -47,25 +59,48 @@ var checkforDraw = function() {
 
 // Loop through array to check for win
 var checkForWinFunct = function() {
-  for (var i = 0; i < winningComboArray.length; i++) {
-    for (var j = 0; j < winningComboArray[i].length; j++) {
-      if () {             //element.innerHtml
-        displayPlayer1Result();
-      }
-      else if (winningComboArray[i][j].match(/OOO/)) {
-        displayPlayer2Result();
-      }
-    }
+  if (cell1.classList.contains(X) && cell2.classList.contains(X) && cell3.classList.contains(X)) {
+    displayPlayer1Win();
+  } else if (cell4.classList.contains(X) && cell5.classList.contains(X) && cell6.classList.contains(X)) {
+    displayPlayer1Win();
+  } else if (cell7.classList.contains(X) && cell8.classList.contains(X) && cell9.classList.contains(X)) {
+    displayPlayer1Win();
+  } else if (cell1.classList.contains(X) && cell4.classList.contains(X) && cell7.classList.contains(X)) {
+    displayPlayer1Win();
+  } else if (cell2.classList.contains(X) && cell5.classList.contains(X) && cell8.classList.contains(X)) {
+    displayPlayer1Win();
+  } else if (cell3.classList.contains(X) && cell6.classList.contains(X) && cell9.classList.contains(X)) {
+    displayPlayer1Win();
+  } else if (cell1.classList.contains(X) && cell5.classList.contains(X) && cell9.classList.contains(X)) {
+    displayPlayer1Win();
+  } else if (cell3.classList.contains(X) && cell5.classList.contains(X) && cell7.classList.contains(X)) {
+    displayPlayer1Win();
+  }
+  else if (cell1.classList.contains(X) && cell2.classList.contains(X) && cell3.classList.contains(X)) {
+    displayPlayer2Win();
+  } else if (cell4.classList.contains(X) && cell5.classList.contains(X) && cell6.classList.contains(X)) {
+    displayPlayer2Win();
+  } else if (cell7.classList.contains(X) && cell8.classList.contains(X) && cell9.classList.contains(X)) {
+    displayPlayer2Win();
+  } else if (cell1.classList.contains(X) && cell4.classList.contains(X) && cell7.classList.contains(X)) {
+    displayPlayer2Win();
+  } else if (cell2.classList.contains(X) && cell5.classList.contains(X) && cell8.classList.contains(X)) {
+    displayPlayer2Win();
+  } else if (cell3.classList.contains(X) && cell6.classList.contains(X) && cell9.classList.contains(X)) {
+    displayPlayer2Win();
+  } else if (cell1.classList.contains(X) && cell5.classList.contains(X) && cell9.classList.contains(X)) {
+    displayPlayer2Win();
+  } else if (cell3.classList.contains(X) && cell5.classList.contains(X) && cell7.classList.contains(X)) {
+    displayPlayer2Win();
   }
 };
-
-var displayPlayer1Result = function() {
-  displayWinner.textContent = 'Player 1 Wins!';
+var displayPlayer1Win = function() {
+  displayWinner.textContent = 'Player 1 Wins!'; // In x moves!
+  player1WinCount++;
   displayPlayer1Wins.textContent = player1WinCount;
-  return player1WinCount++;
 };
 
-var displayPlayer2Result = function() {
+var displayPlayer2Win = function() {
   displayWinner.textContent = 'Player 2 Wins!';
   displayPlayer2Wins.textContent = player2WinCount;
   return player2WinCount++;
@@ -78,23 +113,22 @@ var displayPlayer2Result = function() {
 
 //-------------MAIN PROGRAM FUNCTION---------------
 
-var playerMove = function(event) {
+var mainGameFunction = function(event) {
 // check empty cell
   if (numberOfMoves % 2 === 0) {
     event.target.classList.add('selected-X');  // Use this class to see if cell has been played
-    // event.target.innerHtml = X
-    addPlayer1Selection();
+    //event.target.classList.push();
+    //addPlayer1Selection();
   } else {
     event.target.classList.add('selected-O');
-    // event.target.innerHtml = Y
-    addPlayer2Selection();
+    //player2Moves = event.target.classList.push();
+    //addPlayer2Selection();
   }
   checkForWinFunct();
   checkforDraw();
   changePlayer();
-  debugger
 };
 
 cellItems.forEach(function(cell) {
-  cell.addEventListener('click', playerMove);
+  cell.addEventListener('click', mainGameFunction);
 });
