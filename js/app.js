@@ -4,9 +4,9 @@
 var player1Moves = [];
 var player2Moves = [];
 var gameArray = [];
-var player1Wins = 0;
-var player2Wins = 0;
-var numberOfMoves = 0;                           // if numberOfMoves = 9 --- DRAW
+var player1WinCount = 0;
+var player2WinCount = 0;
+var numberOfMoves = 0;
 var cellItems = document.querySelectorAll('.grid-container div');
 var displayWinner = document.querySelector('.display-winner');
 var displayPlayer1Wins = document.querySelector('.plr1-wins');
@@ -36,6 +36,7 @@ var addPlayer2Selection = function() {
 
 var changePlayer = function() {
   numberOfMoves++;
+  return numberOfMoves;
 };
 
 var checkforDraw = function() {
@@ -48,43 +49,52 @@ var checkforDraw = function() {
 var checkForWinFunct = function() {
   for (var i = 0; i < winningComboArray.length; i++) {
     for (var j = 0; j < winningComboArray[i].length; j++) {
-      if (winningComboArray[i][j].match(/XXX/)) {
-        displayWinner.textContent = 'Player 1 Wins!';
-        displayPlayer1Wins.textContent = player1Wins;
-        return player1Wins++;
+      if () {             //element.innerHtml
+        displayPlayer1Result();
       }
       else if (winningComboArray[i][j].match(/OOO/)) {
-        displayWinner.textContent = 'Player 2 Wins!';
-        displayPlayer2Wins.textContent = player2Wins;
-        return player2Wins++;
+        displayPlayer2Result();
       }
     }
   }
 };
 
+var displayPlayer1Result = function() {
+  displayWinner.textContent = 'Player 1 Wins!';
+  displayPlayer1Wins.textContent = player1WinCount;
+  return player1WinCount++;
+};
 
-// Alternate players after click event
+var displayPlayer2Result = function() {
+  displayWinner.textContent = 'Player 2 Wins!';
+  displayPlayer2Wins.textContent = player2WinCount;
+  return player2WinCount++;
+};
+
+// var newGame = function () {
+//   var newGame = document.querySelector('');
+// };
+
+
+//-------------MAIN PROGRAM FUNCTION---------------
+
 var playerMove = function(event) {
 // check empty cell
   if (numberOfMoves % 2 === 0) {
-    event.target.classList.add('selected-X');
+    event.target.classList.add('selected-X');  // Use this class to see if cell has been played
+    // event.target.innerHtml = X
     addPlayer1Selection();
   } else {
     event.target.classList.add('selected-O');
+    // event.target.innerHtml = Y
     addPlayer2Selection();
   }
   checkForWinFunct();
-  changePlayer();
   checkforDraw();
+  changePlayer();
+  debugger
 };
 
 cellItems.forEach(function(cell) {
   cell.addEventListener('click', playerMove);
 });
-
-
-
-
-// var newGame = function () {
-//   var newGame = document.querySelector('');
-// };
