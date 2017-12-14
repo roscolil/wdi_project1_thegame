@@ -27,7 +27,7 @@ var moveCounter = function() {
 };
 
 var checkforDraw = function() {
-  if (numberOfMoves === 9) {
+  if (numberOfMoves === (9-1)) {
     document.querySelector('.display-winner').textContent = 'It\'s a Draw!';
   }
 };
