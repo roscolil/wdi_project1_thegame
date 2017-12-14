@@ -45,7 +45,9 @@ var displayPlayer2Win = function() {
 };
 
 var newGame = function () {
-  cellItems.classList.remove('selected-X selected-O');  // ERROR: Cannot read property 'remove' of undefined
+  for (var i = 0; i < cellItems.length; i++) {
+    cellItems[i].classList.remove('selected-X', 'selected-O');
+  }
   displayWinner.textContent = '';
 };
 
