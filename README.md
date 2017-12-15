@@ -11,15 +11,15 @@ As the main game logic, I have chosen to use <div> class state as part of the co
 
 The reset button reversed the <div> class state and resets the board and removes the winners message.
 
-Functionality to add:
-- Improve responsiveness and remove page overflow
-- Highlight winning cells
-- Lock game after win
-- Add images on either side of game board
+## Functionality to add:
+* Improve responsiveness and remove page overflow
+* Highlight winning cells
+* Lock game after win
+* Add images on either side of game board
 
-Lessons learned:
-- display: table formatting probably not the best styling option for this type of application.
+## Lessons learned:
+* display: table formatting probably not the best styling option for this type of application.
   It created spaces on the game board from stacking the rows.
-- Use console more.
-- Be aware of data types when debugging.
-- W3 Schools sucks.. Use MDN
+* Use console more.
+* Be aware of data types when debugging.
+* W3 Schools sucks.. Use MDN
