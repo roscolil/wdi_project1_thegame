@@ -3,7 +3,7 @@
 
 var player1WinCount = 0;
 var player2WinCount = 0;
-var numberOfMoves = 1;
+var numberOfMoves = 0;
 var cellItems = document.querySelectorAll('.grid-container div');
 var displayWinner = document.querySelector('.display-winner');
 var displayPlayer1Wins = document.querySelector('.plr1-wins');
@@ -18,19 +18,19 @@ var cell6 = document.querySelector('.cell6');
 var cell7 = document.querySelector('.cell7');
 var cell8 = document.querySelector('.cell8');
 var cell9 = document.querySelector('.cell9');
-var X = ['selected-X'];
-var O = ['selected-O'];
+var X = 'selected-X';
+var O = 'selected-O';
 
-var winningCombo = [
-  [cell1, cell2, cell3],
-  [cell4, cell5, cell6],
-  [cell7, cell8, cell9],
-  [cell1, cell4, cell7],
-  [cell2, cell5, cell8],
-  [cell3, cell6, cell9],
-  [cell1, cell5, cell9],
-  [cell3, cell5, cell7]
-];
+// var winningCombo = [
+//   [cell1, cell2, cell3],
+//   [cell4, cell5, cell6],
+//   [cell7, cell8, cell9],
+//   [cell1, cell4, cell7],
+//   [cell2, cell5, cell8],
+//   [cell3, cell6, cell9],
+//   [cell1, cell5, cell9],
+//   [cell3, cell5, cell7]
+// ];
 
 
 var moveCounter = function() {
@@ -64,56 +64,54 @@ var newGame = function() {
 };
 
 var checkForWinFunct = function() {
-  for (var i = 0; i < winningCombo.length; i++) {
-    for (var j = 0; j < winningCombo[i].length; j++) {
-      if (winningCombo[i][j].classList.contains(X)) {
-        displayPlayer1Win();
-      }
-      else if (winningCombo[i][j].classList.contains(O)) {
-        displayPlayer2Win();
-      }
+  if (cell1.classList.contains(X) && cell2.classList.contains(X) && cell3.classList.contains(X)) {
+    displayPlayer1Win();
+    } else if (cell4.classList.contains(X) && cell5.classList.contains(X) && cell6.classList.contains(X)) {
+      displayPlayer1Win();
+    } else if (cell7.classList.contains(X) && cell8.classList.contains(X) && cell9.classList.contains(X)) {
+      displayPlayer1Win();
+    } else if (cell1.classList.contains(X) && cell4.classList.contains(X) && cell7.classList.contains(X)) {
+      displayPlayer1Win();
+    } else if (cell2.classList.contains(X) && cell5.classList.contains(X) && cell8.classList.contains(X)) {
+      displayPlayer1Win();
+    } else if (cell3.classList.contains(X) && cell6.classList.contains(X) && cell9.classList.contains(X)) {
+      displayPlayer1Win();
+    } else if (cell1.classList.contains(X) && cell5.classList.contains(X) && cell9.classList.contains(X)) {
+      displayPlayer1Win();
+    } else if (cell3.classList.contains(X) && cell5.classList.contains(X) && cell7.classList.contains(X)) {
+      displayPlayer1Win();
     }
-  }
-  checkforDraw();
-  mainGameFunction();
+    else if (cell1.classList.contains(O) && cell2.classList.contains(O) && cell3.classList.contains(O)) {
+      displayPlayer2Win();
+    } else if (cell4.classList.contains(O) && cell5.classList.contains(O) && cell6.classList.contains(O)) {
+      displayPlayer2Win();
+    } else if (cell7.classList.contains(O) && cell8.classList.contains(O) && cell9.classList.contains(O)) {
+      displayPlayer2Win();
+    } else if (cell1.classList.contains(O) && cell4.classList.contains(O) && cell7.classList.contains(O)) {
+      displayPlayer2Win();
+    } else if (cell2.classList.contains(O) && cell5.classList.contains(O) && cell8.classList.contains(O)) {
+      displayPlayer2Win();
+    } else if (cell3.classList.contains(O) && cell6.classList.contains(O) && cell9.classList.contains(O)) {
+      displayPlayer2Win();
+    } else if (cell1.classList.contains(O) && cell5.classList.contains(O) && cell9.classList.contains(O)) {
+      displayPlayer2Win();
+    } else if (cell3.classList.contains(O) && cell5.classList.contains(O) && cell7.classList.contains(O)) {
+      displayPlayer2Win();
+    }
 };
 
-
-// if (cell1.classList.contains(X) && cell2.classList.contains(X) && cell3.classList.contains(X)) {
-//   displayPlayer1Win();
-// } else if (cell4.classList.contains(X) && cell5.classList.contains(X) && cell6.classList.contains(X)) {
-//   displayPlayer1Win();
-// } else if (cell7.classList.contains(X) && cell8.classList.contains(X) && cell9.classList.contains(X)) {
-//   displayPlayer1Win();
-// } else if (cell1.classList.contains(X) && cell4.classList.contains(X) && cell7.classList.contains(X)) {
-//   displayPlayer1Win();
-// } else if (cell2.classList.contains(X) && cell5.classList.contains(X) && cell8.classList.contains(X)) {
-//   displayPlayer1Win();
-// } else if (cell3.classList.contains(X) && cell6.classList.contains(X) && cell9.classList.contains(X)) {
-//   displayPlayer1Win();
-// } else if (cell1.classList.contains(X) && cell5.classList.contains(X) && cell9.classList.contains(X)) {
-//   displayPlayer1Win();
-// } else if (cell3.classList.contains(X) && cell5.classList.contains(X) && cell7.classList.contains(X)) {
-//   displayPlayer1Win();
+// for (var i = 0; i < winningCombo.length; i++) {
+//   for (var j = 0; j < winningCombo[i].length; j++) {
+//     if (winningCombo[i][j].classList.contains(X)) {     // Always true. Need more conditions or search array differently
+//       displayPlayer1Win();
+//     }
+//     else if (winningCombo[i][j].classList.contains(O)) {
+//       displayPlayer2Win();
+//     }
+//   }
 // }
-// else if (cell1.classList.contains(O) && cell2.classList.contains(O) && cell3.classList.contains(O)) {
-//   displayPlayer2Win();
-// } else if (cell4.classList.contains(O) && cell5.classList.contains(O) && cell6.classList.contains(O)) {
-//   displayPlayer2Win();
-// } else if (cell7.classList.contains(O) && cell8.classList.contains(O) && cell9.classList.contains(O)) {
-//   displayPlayer2Win();
-// } else if (cell1.classList.contains(O) && cell4.classList.contains(O) && cell7.classList.contains(O)) {
-//   displayPlayer2Win();
-// } else if (cell2.classList.contains(O) && cell5.classList.contains(O) && cell8.classList.contains(O)) {
-//   displayPlayer2Win();
-// } else if (cell3.classList.contains(O) && cell6.classList.contains(O) && cell9.classList.contains(O)) {
-//   displayPlayer2Win();
-// } else if (cell1.classList.contains(O) && cell5.classList.contains(O) && cell9.classList.contains(O)) {
-//   displayPlayer2Win();
-// } else if (cell3.classList.contains(O) && cell5.classList.contains(O) && cell7.classList.contains(O)) {
-//   displayPlayer2Win();
-// }
-
+// checkforDraw();
+// mainGameFunction();
 
 
 //--------------------------------------MAIN PROGRAM FUNCTION------------------------------------//
@@ -130,8 +128,9 @@ var mainGameFunction = function(event) {
         event.target.classList.add('selected-O');
       }
   }
-  moveCounter();
   checkForWinFunct();
+  checkforDraw();
+  moveCounter();
 };
 
 cellItems.forEach(function(cell) {
