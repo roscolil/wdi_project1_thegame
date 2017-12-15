@@ -9,7 +9,7 @@ var displayWinner = document.querySelector('.display-winner');
 var displayPlayer1Wins = document.querySelector('.plr1-wins');
 var displayPlayer2Wins = document.querySelector('.plr2-wins');
 var newGameBtn = document.querySelector('.newGameBtn');
-var cell1 = document.querySelector('.cell1'); // Refactor these declarations up
+var cell1 = document.querySelector('.cell1');
 var cell2 = document.querySelector('.cell2');
 var cell3 = document.querySelector('.cell3');
 var cell4 = document.querySelector('.cell4');
@@ -20,17 +20,6 @@ var cell8 = document.querySelector('.cell8');
 var cell9 = document.querySelector('.cell9');
 var X = 'selected-X';
 var O = 'selected-O';
-
-// var winningCombo = [
-//   [cell1, cell2, cell3],
-//   [cell4, cell5, cell6],
-//   [cell7, cell8, cell9],
-//   [cell1, cell4, cell7],
-//   [cell2, cell5, cell8],
-//   [cell3, cell6, cell9],
-//   [cell1, cell5, cell9],
-//   [cell3, cell5, cell7]
-// ];
 
 
 var moveCounter = function() {
@@ -100,18 +89,6 @@ var checkForWinFunct = function() {
     }
 };
 
-// for (var i = 0; i < winningCombo.length; i++) {
-//   for (var j = 0; j < winningCombo[i].length; j++) {
-//     if (winningCombo[i][j].classList.contains(X)) {     // Always true. Need more conditions or search array differently
-//       displayPlayer1Win();
-//     }
-//     else if (winningCombo[i][j].classList.contains(O)) {
-//       displayPlayer2Win();
-//     }
-//   }
-// }
-// checkforDraw();
-// mainGameFunction();
 
 
 //--------------------------------------MAIN PROGRAM FUNCTION------------------------------------//
