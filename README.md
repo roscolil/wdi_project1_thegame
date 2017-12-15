@@ -10,3 +10,16 @@ odd/even. The moveCounter function handles the increments after each move and is
 As the main game logic, I have chosen to use <div> class state as part of the condition expressions and check for 'selected-X' or 'selected-O' class names against known winning combinations. These will in turn call the player win functions which display a winning message, increment the player win count and display that win count.
 
 The reset button reversed the <div> class state and resets the board and removes the winners message.
+
+Functionality to add:
+- Improve responsiveness and remove page overflow
+- Highlight winning cells
+- Lock game after win
+- Add images on either side of game board
+
+Lessons learned:
+- display: table formatting probably not the best styling option for this type of application.
+  It created spaces on the game board from stacking the rows.
+- Use console more.
+- Be aware of data types when debugging.
+- W3 Schools sucks.. Use MDN
