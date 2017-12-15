@@ -9,7 +9,7 @@ var displayWinner = document.querySelector('.display-winner');
 var displayPlayer1Wins = document.querySelector('.plr1-wins');
 var displayPlayer2Wins = document.querySelector('.plr2-wins');
 var newGameBtn = document.querySelector('.newGameBtn');
-var cell1 = document.querySelector('.cell1');
+var cell1 = document.querySelector('.cell1'); // forEach method perhaps
 var cell2 = document.querySelector('.cell2');
 var cell3 = document.querySelector('.cell3');
 var cell4 = document.querySelector('.cell4');
@@ -27,19 +27,19 @@ var moveCounter = function() {
 };
 
 var checkforDraw = function() {
-  if (numberOfMoves === 9) {
+  if (numberOfMoves === 8) {
     document.querySelector('.display-winner').textContent = 'It\'s a Draw!';
   }
 };
 
 var displayPlayer1Win = function() {
-  displayWinner.textContent = 'Player 1 Wins in ' + numberOfMoves + ' moves.';
+  displayWinner.textContent = 'Player 1 Wins in ' + (numberOfMoves + 1) + ' moves.';
   player1WinCount++;
   displayPlayer1Wins.textContent = player1WinCount;
 };
 
 var displayPlayer2Win = function() {
-  displayWinner.textContent = 'Player 2 Wins in ' + numberOfMoves + ' moves.';
+  displayWinner.textContent = 'Player 2 Wins in ' + (numberOfMoves + 1) + ' moves.';
   player2WinCount++;
   displayPlayer2Wins.textContent = player2WinCount;
 };
@@ -49,7 +49,7 @@ var newGame = function() {
     cellItems[i].classList.remove('selected-X', 'selected-O');
   }
   displayWinner.textContent = '';
-  numberOfMoves = 1;
+  numberOfMoves = 0;
 };
 
 var checkForWinFunct = function() {
