@@ -9,8 +9,10 @@
   <link rel="stylesheet" href="css/style.css">
   <link href="https://fonts.googleapis.com/css?family=Eczar" rel="stylesheet">
   <link rel="shortcut icon" href="images/jack-o-lantern4.jpg">
+  <link rel="stylesheet" href="css/jquery.counter-analog2.css">
 
 </head>
+
 <body>
   <header>
     <h1>Tic Tac Toe</h1>
@@ -18,9 +20,22 @@
 
   <main>
     <div>
-      <h2>Player 1:<span class="plr1-wins">0</span></h2>
-      <h2>Player 2:<span class="plr2-wins">0</span></h2>
+      <h2>Player 1:<span class="plr1-wins counter-analog2"
+      data-direction="up"
+      data-interval="1"
+      data-format="1"
+      data-stop="9"></span></h2>
+<!-- Not displaying counter when page loads and not counting up. Possibly a result of where/how the Jquery is
+initialized -->
+      <h2>Player 2:<span class="plr2-wins counter-analog2"
+      data-direction="up"
+      data-interval="1"
+      data-format="1"
+      data-stop="9"></span></h2>
     </div>
+
+    <img src="images/Slappy_the_Dummy.png" alt="Slappy">
+    <img class="image2" src="images/Pumpkinhead2.png" alt="Pumpkinhead">
 
     <div class="grid-container">
       <section>
@@ -48,5 +63,7 @@
     </div>
   </footer>
   <script src="js/app.js" charset="utf-8"></script>
+  <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+  <script src="js/jquery.counter.js"></script>
 </body>
 </html>

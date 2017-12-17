@@ -9,9 +9,9 @@ var displayWinner = document.querySelector('.display-winner');
 var displayPlayer1Wins = document.querySelector('.plr1-wins');
 var displayPlayer2Wins = document.querySelector('.plr2-wins');
 var newGameBtn = document.querySelector('.newGameBtn');
-var cell1 = document.querySelector('.cell1'); // Refactor these declarations up
-var cell2 = document.querySelector('.cell2');
-var cell3 = document.querySelector('.cell3');
+var cell1 = document.querySelector('.cell1'); // Refactor these declarations? Or declare array differently?
+var cell2 = document.querySelector('.cell2'); // Use getElementsByClassName or forEach or other method?
+var cell3 = document.querySelector('.cell3'); // Technically i should be able to use cellItems?
 var cell4 = document.querySelector('.cell4');
 var cell5 = document.querySelector('.cell5');
 var cell6 = document.querySelector('.cell6');
@@ -64,16 +64,16 @@ var newGame = function() {
 };
 
 var checkForWinFunct = function() {
+  debugger
   for (var i = 0; i < winningCombo.length; i++) {
     for (var j = 0; j < winningCombo[i].length; j++) {
-      if (winningCombo[i][j].classList.contains(X)) {     // Always true. Need more conditions or search array differently
-        displayPlayer1Win();                              // Or different conditions
-      } else if (winningCombo[i][j].classList.contains(O)) {
+      if (winningCombo[i][j].classList.contains(X) === winningCombo[i][j]) {
+        displayPlayer1Win();
+      } else if (winningCombo[i][j].classList.contains(O) === winningCombo[i][j]) {
         displayPlayer2Win();
       }
     }
   }
-  checkforDraw();
   mainGameFunction();
 };
 
@@ -120,7 +120,7 @@ var checkForWinFunct = function() {
 
 var mainGameFunction = function(event) {
   if (event.target.classList.contains('selected-X') || event.target.classList.contains('selected-O')) {
-    alert('This move has been played. Select another.');
+    alert('This move has been played. Select another.');   // Error at line 122 classList undefined: datatypes??
   } else {
       if (numberOfMoves % 2 === 0) {
         event.target.classList.add('selected-X');
@@ -129,9 +129,13 @@ var mainGameFunction = function(event) {
         event.target.classList.add('selected-O');
       }
   }
-  checkForWinFunct();
   moveCounter();
+  checkforDraw();
+  checkForWinFunct();
 };
+
+
+//---------------------------------------EVENT LISTENERS-------------------------------------------//
 
 cellItems.forEach(function(cell) {
   cell.addEventListener('click', mainGameFunction);

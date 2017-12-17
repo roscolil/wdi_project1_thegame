@@ -4,12 +4,13 @@
 var player1WinCount = 0;
 var player2WinCount = 0;
 var numberOfMoves = 0;
+// var gameCount = 0;
 var cellItems = document.querySelectorAll('.grid-container div');
 var displayWinner = document.querySelector('.display-winner');
 var displayPlayer1Wins = document.querySelector('.plr1-wins');
 var displayPlayer2Wins = document.querySelector('.plr2-wins');
 var newGameBtn = document.querySelector('.newGameBtn');
-var cell1 = document.querySelector('.cell1'); // forEach method perhaps
+var cell1 = document.querySelector('.cell1');
 var cell2 = document.querySelector('.cell2');
 var cell3 = document.querySelector('.cell3');
 var cell4 = document.querySelector('.cell4');
@@ -20,6 +21,7 @@ var cell8 = document.querySelector('.cell8');
 var cell9 = document.querySelector('.cell9');
 var X = 'selected-X';
 var O = 'selected-O';
+
 
 
 var moveCounter = function() {
@@ -35,13 +37,16 @@ var checkforDraw = function() {
 var displayPlayer1Win = function() {
   displayWinner.textContent = 'Player 1 Wins in ' + (numberOfMoves + 1) + ' moves.';
   player1WinCount++;
-  displayPlayer1Wins.textContent = player1WinCount;
+  //displayPlayer1Wins.textContent = player1WinCount;
+  $('.plr1-wins').counter({}); // Not showing on page load or counting up. Do i need to include the player1WinCount
+  // in the jquery.counter.js file?
 };
 
 var displayPlayer2Win = function() {
   displayWinner.textContent = 'Player 2 Wins in ' + (numberOfMoves + 1) + ' moves.';
   player2WinCount++;
-  displayPlayer2Wins.textContent = player2WinCount;
+  //displayPlayer2Wins.textContent = player2WinCount;
+  $('.plr2-wins').counter({});
 };
 
 var newGame = function() {
@@ -50,6 +55,7 @@ var newGame = function() {
   }
   displayWinner.textContent = '';
   numberOfMoves = 0;
+  // gameCount++;
 };
 
 var checkForWinFunct = function() {
@@ -109,6 +115,8 @@ var mainGameFunction = function(event) {
   checkforDraw();
   moveCounter();
 };
+
+//---------------------------------------EVENT LISTENERS-------------------------------------------//
 
 cellItems.forEach(function(cell) {
   cell.addEventListener('click', mainGameFunction);
