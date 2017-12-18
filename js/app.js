@@ -22,6 +22,7 @@ var cell9 = document.querySelector('.cell9');
 var X = 'selected-X';
 var O = 'selected-O';
 
+
 window.onload = function() {
     document.querySelector('audio').play();
 };
@@ -39,14 +40,12 @@ var checkforDraw = function() {
 var displayPlayer1Win = function() {
   displayWinner.textContent = 'Player 1 Wins in ' + (numberOfMoves + 1) + ' moves.';
   player1WinCount++;
-  //displayPlayer1Wins.textContent = player1WinCount;
   $('.plr1-wins').counter({direction: "up", format: player1WinCount, interval: '0'});
 };
 
 var displayPlayer2Win = function() {
   displayWinner.textContent = 'Player 2 Wins in ' + (numberOfMoves + 1) + ' moves.';
   player2WinCount++;
-  //displayPlayer2Wins.textContent = player2WinCount;
   $('.plr2-wins').counter({direction: "up", format: player2WinCount, interval: '0'});
 };
 
@@ -97,7 +96,6 @@ var checkForWinFunct = function() {
 };
 
 
-
 //--------------------------------------MAIN PROGRAM FUNCTION------------------------------------//
 
 
@@ -118,6 +116,7 @@ var mainGameFunction = function(event) {
 };
 
 //---------------------------------------EVENT LISTENERS-------------------------------------------//
+
 
 cellItems.forEach(function(cell) {
   cell.addEventListener('click', mainGameFunction);

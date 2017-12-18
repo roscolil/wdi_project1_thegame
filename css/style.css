@@ -1,11 +1,13 @@
 html {
   box-sizing: border-box;
+  max-height: 750px;
 }
 
 body {
   background-image: url('../images/Cross_Background.jpg');
   background-size: cover;
   background-repeat: no-repeat;
+  transform: scale(.9);
 }
 
 header {
@@ -18,7 +20,7 @@ h1 {
   font-size: 60px;
   font-weight: bold;
   text-align: center;
-  margin-top: 50px;
+  margin-top: 30px;
   margin-bottom: 20px;
   color: white;
 }
@@ -39,14 +41,17 @@ p {
   font-weight: bold;
   color: white;
   margin-bottom: 0;
+  min-height: 30px;
 }
 
 span {
   margin-left: 1%;
+
 }
 
 div {
   text-align: center;
+  min-height: 70px;
 }
 
 img {
@@ -69,6 +74,7 @@ img {
   margin: 0 auto;
   margin-top: 25px;
   margin-bottom: 25px;
+  padding-right: 28px;
 }
 
 .grid_container section {
