@@ -22,7 +22,9 @@ var cell9 = document.querySelector('.cell9');
 var X = 'selected-X';
 var O = 'selected-O';
 
-
+window.onload = function() {
+    document.querySelector('audio').play();
+};
 
 var moveCounter = function() {
   numberOfMoves++;
@@ -38,15 +40,14 @@ var displayPlayer1Win = function() {
   displayWinner.textContent = 'Player 1 Wins in ' + (numberOfMoves + 1) + ' moves.';
   player1WinCount++;
   //displayPlayer1Wins.textContent = player1WinCount;
-  $('.plr1-wins').counter({}); // Not showing on page load or counting up. Do i need to include the player1WinCount
-  // in the jquery.counter.js file?
+  $('.plr1-wins').counter({direction: "up", format: player1WinCount, interval: '0'});
 };
 
 var displayPlayer2Win = function() {
   displayWinner.textContent = 'Player 2 Wins in ' + (numberOfMoves + 1) + ' moves.';
   player2WinCount++;
   //displayPlayer2Wins.textContent = player2WinCount;
-  $('.plr2-wins').counter({});
+  $('.plr2-wins').counter({direction: "up", format: player2WinCount, interval: '0'});
 };
 
 var newGame = function() {
