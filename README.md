@@ -24,7 +24,7 @@ The reset button reverses the <div> class state, resets the board and removes th
 * Make variables local where possible
 * Flip counter not displaying when page loads
 * Alternate which player starts first
-* Improve responsiveness and adjust size of elements to suit
+* Improve responsiveness and adjust size of elements to suit (lock player 1/2 headings)
 * Highlight winning cells
 * Lock game after win
 * Slimy green transition effect from top of screen when page loads

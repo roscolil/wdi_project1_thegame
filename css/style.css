@@ -7,7 +7,6 @@ body {
   background-image: url('../images/Cross_Background.jpg');
   background-size: cover;
   background-repeat: no-repeat;
-  transform: scale(.9);
 }
 
 header {
