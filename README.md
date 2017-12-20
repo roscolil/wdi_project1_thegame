@@ -22,8 +22,8 @@ The reset button reverses the <div> class state, resets the board and removes th
 ## Functionality to add/improvements (in order of priority):
 * Refactor checkForWinFunct and cell declarations
 * Make variables local where possible
-* Flip counter not displaying when page loads
-* Alternate which player starts first
+* Flip counter not displaying when page loads or on GitHub Pages
+* Alternate which player starts first  - use a boolean flag?
 * Improve responsiveness and adjust size of elements to suit (lock player 1/2 headings)
 * Highlight winning cells
 * Lock game after win
