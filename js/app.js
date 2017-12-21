@@ -58,6 +58,13 @@ var newGame = function() {
   // gameCount++;
 };
 
+// function for highligting winning cells
+// var winningCells = function() {
+//   $(".selected-X").hover(function(){
+//     $(this).css('.selected-X:hover'); //or whatever you want
+// });
+// };
+
 var checkForWinFunct = function() {
   if (cell1.classList.contains(X) && cell2.classList.contains(X) && cell3.classList.contains(X)) {
     displayPlayer1Win();

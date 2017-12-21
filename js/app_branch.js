@@ -134,9 +134,6 @@ var mainGameFunction = function(event) {
   checkForWinFunct();
 };
 
-
-//---------------------------------------EVENT LISTENERS-------------------------------------------//
-
 cellItems.forEach(function(cell) {
   cell.addEventListener('click', mainGameFunction);
   newGameBtn.addEventListener('click', newGame);

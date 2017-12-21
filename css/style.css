@@ -116,6 +116,21 @@ img {
   transition-duration: .5s;
 }
 
+/* .selected-X:hover {
+	-ms-transform: scale(1.1,1.1);
+  -webkit-transform: scale(1.1,1.1);
+  transform: scale(1.1,1.1);
+	-webkit-box-shadow: 10px 10px 91px 0px rgba(193,79,82,1);
+  -moz-box-shadow: 10px 10px 91px 0px rgba(193,79,82,1);
+  box-shadow: 10px 10px 91px 0px rgba(193,79,82,1);
+	z-index:9999;
+	border-right:1px solid transparent;
+	border-bottom:1px solid transparent;
+	cursor:pointer;
+	background-color:#fff;
+  transition-duration: .5s;
+} */
+
 /* New Game button */
 button {
   background: #bdbebf;
